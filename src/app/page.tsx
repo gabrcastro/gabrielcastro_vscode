@@ -1,8 +1,8 @@
-import HomePage from "./home/page";
+import HomePage from "./about/page";
 
 export default function Home() {
   return (
-    <main className="flex flex-colum w-full h-full items-center justify-center">
+    <main className="flex flex-colum w-full h-full items-start justify-start">
       <HomePage />
     </main>
   )

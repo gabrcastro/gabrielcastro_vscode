@@ -1,7 +1,15 @@
 import type { Metadata } from 'next'
 import { Nunito_Sans } from 'next/font/google'
 import './globals.css'
-import { Blocks, BugPlay, ChevronDown, Files, Folder, GitMerge, Search } from 'lucide-react'
+import { Blocks, BugPlay, ChevronDown, ChevronRight, File, Files, Folder, GitMerge, MoreHorizontal, Search } from 'lucide-react'
+import { useState } from 'react'
+import clsx from 'clsx'
+import Items from './components/items'
+import Social from './components/social'
+import Intro from './components/number_lines'
+import Tabs from './components/tabs'
+import PathItem from './components/path_item'
+import NumberLines from './components/number_lines'
 
 const nunitoSans = Nunito_Sans({ subsets: ['latin'] })
 
@@ -15,6 +23,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
   return (
     <html lang="en">
       <body className={nunitoSans.className}>
@@ -66,20 +75,37 @@ export default function RootLayout({
 
             {/* files */}
             <div className='flex flex-col items-start h-full w-64 bg-gray-900 border border-gray-800'>
-              <div className='bg-gray-900 py-1 pl-7 w-full h-8 flex flex-row items-center'>
+
+              {/* explorer title */}
+              <div className='bg-gray-900 py-1 pl-7 pr-4 w-full h-8 flex flex-row items-center justify-between'>
                 <span className='font-semibold text-xs uppercase'>Explorer</span>
+                <span>
+                  <MoreHorizontal size={15} />
+                </span>
               </div>
+
+              {/* title before items */}
               <div className='bg-gray-700 p-1 w-full flex flex-row items-center'>
                 <span className='mr-2'>
                   <ChevronDown size={15} />
                 </span>
                 <span className='font-semibold text-[10px] uppercase'>Gabriel Castro Portfolio</span>
               </div>
+
+              {/* item src */}
+              <Items />
+              <Social />
+
             </div>
 
             {/* pages */}
-            <div className='p-5'>
-              {children}
+            <div className='w-full h-full flex flex-col'>
+              <Tabs />
+              <PathItem />
+              <div className='bg-slate-950 w-full h-full flex flex-row'>
+                <NumberLines />
+                {children}
+              </div>
             </div>
           </div>
 
