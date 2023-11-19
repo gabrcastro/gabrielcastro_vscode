@@ -1,17 +1,18 @@
 import type { Metadata } from 'next'
-import { Nunito_Sans } from 'next/font/google'
+
+import { Titillium_Web } from 'next/font/google'
+
 import './globals.css'
-import { Blocks, BugPlay, ChevronDown, ChevronRight, File, Files, Folder, GitMerge, MoreHorizontal, Search } from 'lucide-react'
-import { useState } from 'react'
-import clsx from 'clsx'
-import Items from './components/items'
-import Social from './components/social'
-import Intro from './components/number_lines'
+
+import { Book, Briefcase, FolderOpenDot, Info, MoreHorizontal } from 'lucide-react'
 import Tabs from './components/tabs'
 import PathItem from './components/path_item'
 import NumberLines from './components/number_lines'
+import TitleExplorer from './components/title_explorer'
+import ItemMenuLeft from './components/item_menu_left'
+import Footer from './components/footer'
 
-const nunitoSans = Nunito_Sans({ subsets: ['latin'] })
+const titilliumWeb = Titillium_Web({ weight: ['400'], subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Gabriel Castro',
@@ -20,13 +21,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params
 }: {
-  children: React.ReactNode
+  children: React.ReactNode,
+  params: { lang: string }
 }) {
 
   return (
-    <html lang="en">
-      <body className={nunitoSans.className}>
+    <html lang={params.lang}>
+      <body className={titilliumWeb.className}>
 
         <div className="flex flex-col w-screen h-screen">
           {/* header */}
@@ -41,36 +44,26 @@ export default function RootLayout({
             {/* menu left */}
             <div className='flex flex-col h-full w-14 bg-gray-900 border border-gray-800'>
 
-              <div className='flex flex-row w-full h-12 items-start'>
-                <div className='h-full w-[2px] bg-white' />
-                <div className='w-full h-full flex items-center justify-center'>
-                  <Files color='rgb(229, 231, 235)' />
-                </div>
-              </div>
+              <ItemMenuLeft
+                selected
+                route='/about'
+                icon={<Info color='rgb(229, 231, 235)' />} />
 
-              <div className='flex flex-row w-full h-12 items-start'>
-                <div className='w-full h-full flex items-center justify-center'>
-                  <Search color='rgb(107, 114, 128)' />
-                </div>
-              </div>
+              <ItemMenuLeft
+                selected={false}
+                route='/experiences'
+                icon={<Briefcase color='rgb(107, 114, 128)' />} />
 
-              <div className='flex flex-row w-full h-12 items-start'>
-                <div className='w-full h-full flex items-center justify-center'>
-                  <GitMerge color='rgb(107, 114, 128)' />
-                </div>
-              </div>
+              <ItemMenuLeft
+                selected={false}
+                route='/education'
+                icon={<Book color='rgb(107, 114, 128)' />} />
 
-              <div className='flex flex-row w-full h-12 items-start'>
-                <div className='w-full h-full flex items-center justify-center'>
-                  <BugPlay color='rgb(107, 114, 128)' />
-                </div>
-              </div>
+              <ItemMenuLeft
+                selected={false}
+                route='/projects'
+                icon={<FolderOpenDot color='rgb(107, 114, 128)' />} />
 
-              <div className='flex flex-row w-full h-12 items-start'>
-                <div className='w-full h-full flex items-center justify-center'>
-                  <Blocks color='rgb(107, 114, 128)' />
-                </div>
-              </div>
             </div>
 
             {/* files */}
@@ -85,16 +78,7 @@ export default function RootLayout({
               </div>
 
               {/* title before items */}
-              <div className='bg-gray-700 p-1 w-full flex flex-row items-center'>
-                <span className='mr-2'>
-                  <ChevronDown size={15} />
-                </span>
-                <span className='font-semibold text-[10px] uppercase'>Gabriel Castro Portfolio</span>
-              </div>
-
-              {/* item src */}
-              <Items />
-              <Social />
+              <TitleExplorer />
 
             </div>
 
@@ -102,33 +86,17 @@ export default function RootLayout({
             <div className='w-full h-full flex flex-col'>
               <Tabs />
               <PathItem />
-              <div className='bg-slate-950 w-full h-full flex flex-row'>
+              <div className='bg-slate-900 w-full h-full flex flex-row'>
                 <NumberLines />
-                {children}
+                <div className='w-full h-full overflow-y-auto overflow-x-hidden'>
+                  {children}
+                </div>
               </div>
             </div>
           </div>
 
           {/* footer */}
-          <div className='w-full h-6 flex items-center justify-between bg-gray-900 border border-gray-800'>
-            <div>
-              <button type="button" className="bg-slate-800 px-2">
-                <span className="font-light text-gray-300 text-base">English</span>
-              </button>
-              <button type="button" className='bg-gray-900 px-2'>
-                <span className="font-light text-gray-300 text-base">Portuguese</span>
-              </button>
-            </div>
-
-            <div>
-              <button type="button" className="bg-slate-800 px-2">
-                <span className="font-light text-gray-300 text-base">Dark</span>
-              </button>
-              <button type="button" className='bg-gray-900 px-2'>
-                <span className="font-light text-gray-300 text-base">Light</span>
-              </button>
-            </div>
-          </div>
+          <Footer />
         </div>
       </body>
     </html>

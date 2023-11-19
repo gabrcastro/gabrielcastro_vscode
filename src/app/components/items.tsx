@@ -1,8 +1,9 @@
 "use client";
 
 import clsx from 'clsx';
-import { Blocks, BugPlay, ChevronDown, ChevronRight, File, Files, Folder, GitMerge, MoreHorizontal, Search } from 'lucide-react'
+import { Blocks, Book, BookCopy, Briefcase, BugPlay, ChevronDown, ChevronRight, File, Files, Folder, FolderOpenDot, GitMerge, Home, Info, MoreHorizontal, Search, Workflow } from 'lucide-react'
 import { useState } from 'react';
+import FileItem from './file';
 
 function Items() {
 
@@ -21,38 +22,19 @@ function Items() {
       <div className={clsx(!itemsView && 'hidden', 'w-full')}>
         <div className='flex flex-row w-full h-full relative'>
           <div className='absolute flex h-full w-[0.5px] bg-slate-500 ml-7 mt-1'/>
-          <div className='w-full'>
+          <div className='w-full pl-8'>
+
             {/* ABOUT */}
-            <div className='w-full flex flex-row items-center justify-start pl-8 bg-gray-700'>
-              <div className='ml-4 flex flex-row items-center'>
-                <File size={14} />
-                <span className='font-normal text-base ml-1.5 text-gray-300'>about</span>
-              </div>
-            </div>
+            <FileItem samePage route='/about' icon={<Info size={14} />} title='about' />
 
             {/* EXPERIENCES */}
-            <div className='w-full flex flex-row items-center justify-start pl-8'>
-              <div className='ml-4 flex flex-row items-center'>
-                <File size={14} />
-                <span className='font-normal text-base ml-1.5 text-gray-300'>experiences</span>
-              </div>
-            </div>
+            <FileItem samePage route='/experiences' icon={<Briefcase size={14} />} title='experiences' />
 
             {/* EDUCATION */}
-            <div className='w-full flex flex-row items-center justify-start pl-8'>
-              <div className='ml-4 flex flex-row items-center'>
-                <File size={14} />
-                <span className='font-normal text-base ml-1.5 text-gray-300'>education</span>
-              </div>
-            </div>
+            <FileItem samePage route='/education' icon={<Book size={14} />} title='education' />
 
             {/* PROJECTS */}
-            <div className='w-full flex flex-row items-center justify-start pl-8'>
-              <div className='ml-4 flex flex-row items-center'>
-                <File size={14} />
-                <span className='font-normal text-base ml-1.5 text-gray-300'>projects</span>
-              </div>
-            </div>
+            <FileItem samePage route='/projects' icon={<FolderOpenDot size={14} />} title='projects' />
           </div>
         </div>
       </div>

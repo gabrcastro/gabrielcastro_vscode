@@ -1,9 +1,11 @@
-import HomePage from "./about/page";
-
-export default function Home() {
+export default function Page({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <main className="flex flex-colum w-full h-full items-start justify-start">
-      <HomePage />
+      {children}
     </main>
   )
 }
