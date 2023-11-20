@@ -1,8 +1,17 @@
+'use client'
+
+import { useMenu } from "@/redux/menu_context";
 import { useTranslations } from "next-intl";
+import { useEffect } from "react";
 
 export default function About() {
 
   // const t = useTranslations('about')
+  const { selectedRoute, setSelectedRoute } = useMenu();
+  
+  useEffect(() => {
+    setSelectedRoute('/about')
+  });
 
   return (
     <div className="flex flex-col px-10 mt-20 justify-start">
