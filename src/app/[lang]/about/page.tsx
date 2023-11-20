@@ -1,8 +1,6 @@
-import { getDictionaryUseClient } from "@/config/dictionaries/default-dictionary-use-client";
-import { Locale } from "@/config/i18n";
 import { useTranslations } from "next-intl";
 
-export default function About(params: {lang: string}) {
+export default function About() {
 
   const t = useTranslations('about')
 

@@ -1,12 +1,10 @@
-import { getDictionaryUseClient } from "@/config/dictionaries/default-dictionary-use-client";
 import ExperienceItem from "./components/experience_item";
-import { Locale } from "@/config/i18n";
 import { useTranslations } from "next-intl";
 
 interface ExperiencesProps {
   }
 
-function Experiences(params: {lang: string}) {
+function Experiences() {
     
     const t = useTranslations('experiences');
     
