@@ -10,30 +10,30 @@ interface EducationProps {
   
   function Education()  {
 
-    const t = useTranslations('education')
+    // const t = useTranslations('education')
 
     return(
         <div className="flex flex-col  mt-20 items-start">
 
             <EducationItem 
-                title={t('last.title')}
-                type={t('last.type')}
-                startYear={t('last.start')}
-                endYear={t('last.end')}
+                title={"Data Analysis"}
+                type={"Postgraduate"}
+                startYear={"2022"}
+                endYear={"2023"}
             />
 
             <EducationItem 
-                title={t('second.title')}
-                type={t('second.type')}
-                startYear={t('second.start')}
-                endYear={t('second.end')}
+                title={"Web Technologies and Innovations"}
+                type={"Postgraduate"}
+                startYear={"2021"}
+                endYear={"2022"}
             />
 
             <EducationItem 
-                title={t('first.title')}
-                type={t('first.type')}
-                startYear={t('first.start')}
-                endYear={t('first.end')}
+                title={"Analysis and Systems Development"}
+                type={"Graduation"}
+                startYear={"2017"}
+                endYear={"2020"}
             />
 
         </div>

@@ -28,6 +28,7 @@ const locales = ['en', 'de'];
 export function generateStaticParams() {
   return locales.map((locale) => ({locale}));
 }
+
 export default function RootLayout({
   children,
   params: { lang }
@@ -37,13 +38,13 @@ export default function RootLayout({
 
   return (
     <html lang={lang}>
-      <body className={titilliumWeb.className}  suppressHydrationWarning={true}>
+      <body className={titilliumWeb.className} suppressHydrationWarning={true}>
           <div className="flex flex-col w-screen h-screen overflow-hidden">
             {/* header */}
             <div className='w-full h-8 p-1.5 flex items-center justify-start bg-gray-900 border border-gray-800'>
-              <button type='button' className='w-3.5 h-3.5 rounded-full bg-red-500 mr-1.5' />
-              <button type='button' className='w-3.5 h-3.5 rounded-full bg-yellow-500 mr-1.5' />
-              <button type='button' className='w-3.5 h-3.5 rounded-full bg-green-500' />
+              <button type='button' className='w-3 h-3 rounded-full bg-red-500 mr-1.5' />
+              <button type='button' className='w-3 h-3 rounded-full bg-yellow-500 mr-1.5' />
+              <button type='button' className='w-3 h-3 rounded-full bg-green-500' />
             </div>
 
             {/* content */}
