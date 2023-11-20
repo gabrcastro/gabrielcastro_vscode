@@ -9,6 +9,7 @@ import ItemMenuLeft from './components/item_menu_left'
 import Footer from './components/footer'
 
 import '../globals.css'
+import { unstable_setRequestLocale } from 'next-intl/server'
 
 const titilliumWeb = Titillium_Web({ weight: ['400'], subsets: ['latin'] })
 
@@ -31,6 +32,8 @@ export default function RootLayout({
   children,
   params: { lang }
 }: Props) {
+
+  unstable_setRequestLocale(lang);
 
   return (
     <html lang={lang}>
