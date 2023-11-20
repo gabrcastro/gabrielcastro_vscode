@@ -1,6 +1,4 @@
-import About from "./about/page"
-
-export default function Page({
+export function Page({
   children,
 }: {
   children: React.ReactNode
