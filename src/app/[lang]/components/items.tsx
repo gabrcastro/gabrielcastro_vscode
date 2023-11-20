@@ -4,11 +4,12 @@ import clsx from 'clsx';
 import { Book, Briefcase, ChevronDown, ChevronRight, Folder, FolderOpenDot, Info, Workflow } from 'lucide-react'
 import { useState } from 'react';
 import FileItem from './file';
+import { useMenu } from '@/redux/menu_context';
 // import { useTranslations } from 'next-intl';
 // import { getDictionaryUseClient } from '@/config/dictionaries/default-dictionary-use-client';
 // import { Locale } from '@/config/i18n';
 
-function Items(params: {lang: string}) {
+function Items(params: { lang: string }) {
 
   const [itemsView, setItemsView] = useState(true);
   // const t = useTranslations('menu');
@@ -25,21 +26,21 @@ function Items(params: {lang: string}) {
 
       <div className={clsx(!itemsView && 'hidden', 'w-full')}>
         <div className='flex flex-row w-full h-full relative'>
-          <div className='absolute flex h-full w-[0.5px] bg-slate-500 ml-7 mt-1'/>
-          <div className='w-full pl-8'>
+          <div className='absolute flex h-full w-[0.5px] bg-slate-500 ml-7 mt-1' />
+          <div className='w-full'>
 
             {/* ABOUT */}
-            <FileItem samePage route='/about' icon={<Info size={14} />} title={'about'} />
+            <FileItem padding samePage route='/about' icon={<Info size={14} />} title={'about'} />
 
             {/* EXPERIENCES */}
-            <FileItem samePage route='/experiences' icon={<Briefcase size={14} />} title={'experiences'} />
+            <FileItem padding samePage route='/experiences' icon={<Briefcase size={14} />} title={'experiences'} />
 
             {/* EDUCATION */}
-            <FileItem samePage route='/education' icon={<Book size={14} />} title={'education'} />
+            <FileItem padding samePage route='/education' icon={<Book size={14} />} title={'education'} />
 
             {/* PROJECTS */}
-            <FileItem samePage route='/projects' icon={<FolderOpenDot size={14} />} title={'projects'} />
-          </div>
+            <FileItem padding samePage route='/projects' icon={<FolderOpenDot size={14} />} title={'projects'} />
+            </div>
         </div>
       </div>
 

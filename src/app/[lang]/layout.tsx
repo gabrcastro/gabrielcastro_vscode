@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Titillium_Web } from 'next/font/google'
-import { Book, Briefcase, FolderOpenDot, Info, MoreHorizontal } from 'lucide-react'
+import { MoreHorizontal } from 'lucide-react'
 import Tabs from './components/tabs'
 import PathItem from './components/path_item'
 import NumberLines from './components/number_lines'
@@ -10,6 +10,11 @@ import Footer from './components/footer'
 
 import '../globals.css'
 import { unstable_setRequestLocale } from 'next-intl/server'
+import Menu from './components/menu'
+
+import { Provider } from 'react-redux';
+import store from '../../redux/store';
+import { MenuProvider } from '@/redux/menu_context'
 
 const titilliumWeb = Titillium_Web({ weight: ['400'], subsets: ['latin'] })
 
@@ -24,9 +29,9 @@ type Props = {
 };
 
 const locales = ['en', 'de'];
- 
+
 export function generateStaticParams() {
-  return locales.map((locale) => ({locale}));
+  return locales.map((locale) => ({ locale }));
 }
 
 export default function RootLayout({
@@ -39,6 +44,7 @@ export default function RootLayout({
   return (
     <html lang={lang}>
       <body className={titilliumWeb.className} suppressHydrationWarning={true}>
+        <MenuProvider>
           <div className="flex flex-col w-screen h-screen overflow-hidden">
             {/* header */}
             <div className='w-full h-8 p-1.5 flex items-center justify-start bg-gray-900 border border-gray-800'>
@@ -50,29 +56,7 @@ export default function RootLayout({
             {/* content */}
             <div className='w-full h-full flex flex-row'>
               {/* menu left */}
-              <div className='flex flex-col h-full w-14 bg-gray-900 border border-gray-800'>
-
-                <ItemMenuLeft
-                  selected
-                  route={`/${lang}/about`}
-                  icon={<Info color='rgb(229, 231, 235)' />} />
-
-                <ItemMenuLeft
-                  selected={false}
-                  route={`/${lang}/experiences`}
-                  icon={<Briefcase color='rgb(107, 114, 128)' />} />
-
-                <ItemMenuLeft
-                  selected={false}
-                  route={`/${lang}/education`}
-                  icon={<Book color='rgb(107, 114, 128)' />} />
-
-                <ItemMenuLeft
-                  selected={false}
-                  route={`/${lang}/projects`}
-                  icon={<FolderOpenDot color='rgb(107, 114, 128)' />} />
-
-              </div>
+              <Menu />
 
               {/* files */}
               <div className='flex flex-col items-start h-full w-64 bg-gray-900 border border-gray-800'>
@@ -106,6 +90,7 @@ export default function RootLayout({
             {/* footer */}
             <Footer />
           </div>
+        </MenuProvider>
       </body>
     </html>
   )
