@@ -9,9 +9,6 @@ import ItemMenuLeft from './components/item_menu_left'
 import Footer from './components/footer'
 
 import '../globals.css'
-import { NextIntlClientProvider } from 'next-intl'
-import { getRequestConfig, unstable_setRequestLocale } from 'next-intl/server'
-// import { i18n } from '@/config/i18n';
 
 const titilliumWeb = Titillium_Web({ weight: ['400'], subsets: ['latin'] })
 
@@ -25,11 +22,6 @@ type Props = {
   params: { lang: string };
 };
 
-// export async function generateStaticParams() {
-//   const languages = i18n.locales.map((lang) => (( lang )));
-//   return languages;
-// }
-
 const locales = ['en', 'de'];
  
 export function generateStaticParams() {
@@ -40,8 +32,6 @@ export default function RootLayout({
   params: { lang }
 }: Props) {
 
-  unstable_setRequestLocale(lang);
-  
   return (
     <html lang={lang}>
       <body className={titilliumWeb.className}  suppressHydrationWarning={true}>
