@@ -1,16 +1,18 @@
 'use client'
 
 import { useMenu } from "@/redux/menu_context";
+import { Info } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useEffect } from "react";
 
 export default function About() {
 
   // const t = useTranslations('about')
-  const { selectedRoute, setSelectedRoute } = useMenu();
+  const { selectedRoute, setSelectedRoute, setSelectedRouteIcon } = useMenu();
   
   useEffect(() => {
     setSelectedRoute('/about')
+    setSelectedRouteIcon(<Info size={14} />)
   });
 
   return (

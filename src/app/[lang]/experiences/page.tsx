@@ -4,6 +4,7 @@ import { useMenu } from "@/redux/menu_context";
 import ExperienceItem from "./components/experience_item";
 import { useTranslations } from "next-intl";
 import { useEffect } from "react";
+import { Briefcase } from "lucide-react";
 
 interface ExperiencesProps {
 }
@@ -37,10 +38,11 @@ function Experiences() {
   // }
   // firstDescriptionsArray.shift();
 
-  const { selectedRoute, setSelectedRoute } = useMenu();
+  const { selectedRoute, setSelectedRoute, setSelectedRouteIcon } = useMenu();
 
   useEffect(() => {
     setSelectedRoute('/experiences')
+    setSelectedRouteIcon(<Briefcase size={14} />)
   });
 
   return (

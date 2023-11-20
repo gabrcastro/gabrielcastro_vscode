@@ -10,7 +10,6 @@ import { useMenu } from '@/redux/menu_context';
 // import { Locale } from '@/config/i18n';
 
 function Items(params: { lang: string }) {
-  const { selectedRoute, setSelectedRoute } = useMenu();
 
   const [itemsView, setItemsView] = useState(true);
   // const t = useTranslations('menu');

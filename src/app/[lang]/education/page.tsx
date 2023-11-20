@@ -7,6 +7,7 @@ import { Locale } from "@/config/i18n";
 import { useTranslations } from "next-intl";
 import { useMenu } from "@/redux/menu_context";
 import { useEffect } from "react";
+import { Book } from "lucide-react";
 
 interface EducationProps {
 
@@ -15,10 +16,11 @@ interface EducationProps {
 function Education() {
 
     // const t = useTranslations('education')
-    const { selectedRoute, setSelectedRoute } = useMenu();
+    const { selectedRoute, setSelectedRoute, setSelectedRouteIcon } = useMenu();
 
     useEffect(() => {
         setSelectedRoute('/education')
+        setSelectedRouteIcon(<Book size={14} />)
     });
 
     return (
