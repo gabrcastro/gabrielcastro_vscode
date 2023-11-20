@@ -1,21 +1,23 @@
-import { NextRequest, NextResponse } from 'next/server'
+// import createMiddleware from "next-intl/middleware";
+// import { i18n } from "@/config/i18n";
+
+// export default createMiddleware(i18n);
+
+// export const config = {
+//     matcher: ['/((?!api|_next|_vercel|.*\\..*).*)']
+// };
+
+import createMiddleware from 'next-intl/middleware';
  
-const PUBLIC_FILE = /\.(.*)$/
+export default createMiddleware({
+  // A list of all locales that are supported
+  locales: ['en', 'pt'],
  
-export async function middleware(req: NextRequest) {
-  if (
-    req.nextUrl.pathname.startsWith('/_next') ||
-    req.nextUrl.pathname.includes('/api/') ||
-    PUBLIC_FILE.test(req.nextUrl.pathname)
-  ) {
-    return
-  }
+  // Used when no locale matches
+  defaultLocale: 'en'
+});
  
-  if (req.nextUrl.locale === 'default') {
-    const locale = req.cookies.get('NEXT_LOCALE')?.value || 'en'
- 
-    return NextResponse.redirect(
-      new URL(`/${locale}${req.nextUrl.pathname}${req.nextUrl.search}`, req.url)
-    )
-  }
-}
+export const config = {
+  // Match only internationalized pathnames
+  matcher: ['/((?!api|_next|_vercel|.*\\..*).*)']
+};

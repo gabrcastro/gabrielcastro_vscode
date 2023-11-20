@@ -5,8 +5,9 @@ import Items from "./items";
 import Social from "./social";
 import { useState } from "react";
 import clsx from "clsx";
+import { Locale } from "@/config/i18n";
 
-export default function TitleExplorer() {
+export default function TitleExplorer(params: {lang: string}) {
 
   const [explorerView, setExplorerView] = useState(true);
   
@@ -22,7 +23,7 @@ export default function TitleExplorer() {
       
       {/* item src */}
       <div className={clsx(!explorerView && 'hidden', 'w-full')}>
-        <Items />
+        <Items lang={params.lang} />
         <Social />
       </div>
     </div>

@@ -1,0 +1,90 @@
+{
+  "menu": {
+    "about": "sobre",
+    "experiences": "experiências",
+    "education": "educação",
+    "projects": "projetos",
+    "en": "inglês",
+    "pt": "português"
+  },
+  
+  "about": {
+    "greetings": "Olá, eu sou",
+    "name": "Gabriel Castro",
+    "position": "Desenvolvedor Front-End",
+    "text": "Olá! sou um entusiasta do mundo da tecnologia e dedicado desenvolvedor front-end web e mobile. Minha paixão por transformar ideias em experiências interativas levou-me a explorar as maravilhas do desenvolvimento de software. Sou movido pela curiosidade e pelo desafio de enfrentar novos horizontes seja no vasto universo da programação como também em outras áreas. Acredito que o aprendizado contínuo é a chave para o sucesso.Acredito que cada obstáculo é uma oportunidade de crescimento, e encontrar soluções eficientes é o que me motiva a buscar sempre o melhor."
+  },
+  
+  "experiences": {
+    "current": {
+      "company": "Houseasy",
+      "startYear": "dez/2022",
+      "endYear": "Atualmente",
+      "position": "Front-End Developer Pleno",
+      "description": {
+        "0": "Desenvolimento e manutenção de ERP em React.",
+        "1": "Desenvolvimento e manutenção do site em NextJS.",
+        "2": "Aplicativos mobile utilizando Flutter e Dart.",
+        "3": "Integrações do Android Nativo com Kotlin com o aplicativo Flutter."
+      },
+      "skills": {
+        "0": "React",
+        "1": "Typescript",
+        "2": "NextJS",
+        "3": "Zod",
+        "4": "Tailwind CSS",
+        "5": "Chakra UI",
+        "6": "Flutter",
+        "7": "Dart",
+        "8": "Kotlin",
+        "9": "Android",
+        "10": "Firebase",
+        "11": "Jest",
+        "12": "Cypress",
+        "13": "Git"
+      }
+    },
+    "first": {
+      "company": "Profile",
+      "startYear": "set/2021",
+      "endYear": "set/2022",
+      "position": "Front-End Developer Pleno",
+      "description": {
+        "0": "Desenvolimento e manutenção sistema web com Angular.",
+        "1": "Manutenção de aplicativos mobile com Flutter."
+      },
+      "skills": {
+        "0": "Angular",
+        "1": "Typescript",
+        "2": "Material UI",
+        "3": "CSS3",
+        "4": "Flutter",
+        "5": "Dart",
+        "6": "Git"
+      }
+    }
+  },
+  "education": {
+    "last": {
+      "title": "Análise de Dados",
+      "type": "Pós-Graduação",
+      "start": "2022",
+      "end": "2023"
+    },
+    "second": {
+      "title": "Tecnologias e Inovações Web",
+      "type": "Pós-Graduação",
+      "start": "2021",
+      "end": "2022"
+    },
+    "first": {
+      "title": "Análise e Desenvolvimento de Sistemas",
+      "type": "Graduação",
+      "start": "2017",
+      "end": "2020"
+    }
+  },
+  "projects": {
+    "empty": "EM DESENVOLVIMENTO"
+  }
+}
