@@ -38,7 +38,7 @@ function Items(params: {lang: string}) {
             <FileItem samePage route='/education' icon={<Book size={14} />} title={'education'} />
 
             {/* PROJECTS */}
-            <FileItem samePage route='/projects' icon={<FolderOpenDot size={14} />} title={'menu.projects'} />
+            <FileItem samePage route='/projects' icon={<FolderOpenDot size={14} />} title={'projects'} />
           </div>
         </div>
       </div>
