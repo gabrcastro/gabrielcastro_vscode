@@ -10,7 +10,7 @@ import Footer from './components/footer'
 
 import '../globals.css'
 import { NextIntlClientProvider } from 'next-intl'
-import { getRequestConfig } from 'next-intl/server'
+import { getRequestConfig, unstable_setRequestLocale } from 'next-intl/server'
 // import { i18n } from '@/config/i18n';
 
 const titilliumWeb = Titillium_Web({ weight: ['400'], subsets: ['latin'] })
@@ -31,15 +31,17 @@ type Props = {
 // }
 
 const locales = ['en', 'de'];
-
+ 
 export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
+  return locales.map((locale) => ({locale}));
 }
-
 export default function RootLayout({
   children,
   params: { lang }
 }: Props) {
+
+  unstable_setRequestLocale(lang);
+  
   return (
     <html lang={lang}>
       <body className={titilliumWeb.className}  suppressHydrationWarning={true}>
